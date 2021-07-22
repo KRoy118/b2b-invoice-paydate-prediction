@@ -1,0 +1,265 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style>
+body{
+background: transparent radial-gradient(closest-side at 50% 50%, #58687E 0%, #39495E 100%) 0% 0% no-repeat padding-box;
+opacity: 1;}
+.indexleft
+{
+margin-top: 80px;
+margin-left: 175px;
+width: 204px;
+height: 31px;
+text-align: left;
+font: normal normal bold 28px/32px Ubuntu;
+letter-spacing: 0px;
+color: #14AFF1;
+text-transform: uppercase;
+opacity: 1;
+position:absolute;
+
+}
+.indexryt
+{
+margin-top: 86px;
+margin-left: 1110px;
+width: 118px;
+height: 23px;
+text-align: left;
+font: normal normal normal 17px/20px Ubuntu;
+letter-spacing: 0px;
+color:white;
+opacity: 1;
+position:absolute;
+
+}
+
+
+ .ryticn1
+{top: 122px;
+left: 1115px;
+width: 24px;
+height: 24px;
+background: transparent url('images/check_box-black-18dp.svg') 0% 0% no-repeat padding-box;
+position:absolute;
+opacity: 1
+}
+
+
+ .ryticn2
+ {
+top: 122px;
+left: 1158px;
+width: 24px;
+height: 24px;
+background: transparent url('images/check_box_outline_blank-black-18dp.svg') 0% 0% no-repeat padding-box;
+opacity: 1;
+position:absolute;
+ }
+ 
+.ryticn3
+ {
+top: 122px;
+left: 1200px;
+width: 24px;
+height: 24px;
+background:  transparent url('images/calendar_today-24px.svg') 0% 0% no-repeat padding-box;;
+opacity: 1;
+position:absolute;
+ }
+ .leftsub
+ {
+top: 127px;
+left: 175px;
+width: 484px;
+height: 27px;
+text-align: left;
+font: normal normal normal 24px/28px Ubuntu;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 0.52;
+position:absolute;
+ }
+ .p
+ {
+top: 800px;
+left: 175px;
+width: 170px;
+height: 31px;
+text-align: left;
+font: normal normal normal 28px/32px Ubuntu;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+position:absolute;
+ }
+  
+ * {
+  box-sizing: border-box;
+}
+
+.flex-container1 {
+  margin-top:260px;
+  display: flex;
+  flex-direction: row;left:175px;
+ text-align: left;
+
+opacity: 1;
+position:absolute;
+  
+  
+}
+
+.flex-item-left1 {
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right1 {
+margin-left:190px;
+  padding: 10px;
+  flex: 80%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container1{
+    flex-direction: column;
+  }
+  
+  .indexleft,.leftsub{
+    left:85px;
+    top:95px;
+  }
+  .logo{left:110px;top:10px;}
+}
+
+
+
+ * {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  margin-top:50px;
+  display: flex;
+  flex-direction: row;
+ 
+}
+
+.flex-item-left {
+  padding: 20px;
+  flex: 20%;
+}
+
+.flex-item-right {
+  padding: 20px;
+  flex: 20%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+ background: #2A3E4C 0% 0% no-repeat padding-box;
+box-shadow: 0px 8px 24px #00000029;
+border-radius: 6px;
+  margin: auto;
+  margin-top:75px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height:69%;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+button
+{
+background:transparent;
+border:0px;
+
+}
+
+.font
+{
+
+text-align: left;
+font: normal normal normal 20px/24px Ubuntu;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
+}
+A {text-decoration: none;color:white;}
+
+</style>
+
+<body>
+
+		<div class="indexleft">UX SCENARIOS</div></br>
+		<div class="indexryt">Other Assets</div>
+		<div class="ryticn1"></div>
+		<div class="ryticn2"></div>
+		<div class="ryticn3"></div>
+		<div class="leftsub">Click 'ABC Products' logo/backdrop to return</div>
+		
+		
+		<div class="flex-container1 font">
+      <div class="flex-item-left1">
+       <button id="myBtn" class="font"><a href="test.html">Landing Page</a></button><br></br>
+        <div class="font"><a href="test.html">Rows Selected (Assets)</a></div><br></br>
+        <div class="font"><a href="test.html">Edit Invoice</a></div><br></br>
+        <div  class="font"><a href="test.html">Add Invoice Calender</a></div><br></br>
+        <div class="font"><a href="test.html">Confirmation Pop up: Delete Warning</a></div><br></br>
+      
+      </div>
+      <div class="flex-item-right1">
+         <div class="font"><a href="test.html">Invoice Search Highlight in Grid</a></div><br></br>
+         <div class="font"><a href="test.html">Data Table Empty State (Assets)</a></div><br></br>
+         <div class="font"><a href="test.html">Add Invoice Mandatory fields v1: ADD btn DISABLED</a></div><br></br>
+      
+      </div>
+      </div>
+      
+    
+</body>
+</html>

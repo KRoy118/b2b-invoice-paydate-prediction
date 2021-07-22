@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>GFG User Details</title>
+		<!-- INCLUDING JQUERY-->
+		<script src=
+			"https://code.jquery.com/jquery-3.5.1.js"></script>
+	</head>
+	<!-- CSS FOR STYLING THE PAGE -->
+	<style>
+		li{
+		color:blue;
+		}
+		body{
+		background: transparent radial-gradient(closest-side at 50% 50%, #58687E 0%, #39495E 100%) 0% 0% no-repeat padding-box;
+		opacity: 1;}
+		.leftlogo
+		{
+		top: 16px;
+		left: 30px;
+		width: 289px;
+		height: 52px;
+		opacity: 1;
+		position:absolute;
+		}
+		.logo
+		{
+		top: 22px;
+		left: 643px;
+		width: 235px;
+        background: transparent url('images/logo.svg') 0% 0% no-repeat padding-box;
+		height: 50px;
+		opacity: 1;
+		position:absolute;
+		}
+		.addbtn
+		{
+		top: 184px;
+		left: 835px;
+		width: 70px;
+		height: 30px;
+		border: 1px solid #97A1A9;
+		border-radius: 6px;
+		opacity: 1;
+		position:absolute;
+		background:transparent;
+		}
+		.addbtnicon
+		{
+		margin:2px;
+		width: 1px;
+		height: 1px;
+		color: #FFFFFF ;
+		opacity: 1;
+		}
+		.editbtn
+		{
+		top: 184px;
+		left: 940px;
+		width: 70px;
+		height: 30px;
+		border: 1px solid #97A1A9;
+		border-radius: 6px;
+		opacity: 1;
+		position:absolute;
+		background:transparent;
+		}
+		.editbtnicon
+		{
+		margin:2px;
+		width: 1px;
+		height: 1px;
+		color: #FFFFFF ;
+		opacity: 1;
+		}
+		.delbtn
+		{
+		top: 184px;
+		left: 1045px;
+		width: 70px;
+		height: 30px;
+		border: 1px solid #97A1A9;
+		border-radius: 6px;
+		opacity: 1;
+		position:absolute;
+		background:transparent;
+		}
+		.delbtnicon
+		{
+		margin:2px;
+		color: #FFFFFF ;
+		opacity: 1;
+		width: 180px;
+		height: 60px;
+		text-align: left;
+		font: normal normal normal 20px/24px Ubuntu;
+		letter-spacing: 0px;
+		color: #97A1A9;
+		opacity: 1;
+		}
+		.search{
+		top: 184px;
+		left: 1120px;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 10px;
+		opacity: 1;
+		position:absolute;
+		}
+		.addeditdelfont
+		{
+		width: 37px;
+		height: 23px;
+		text-align: left;
+		font: normal normal normal 10px/8px Ubuntu;
+		letter-spacing: 0px;
+		color: #FFFFFF;
+		opacity: 1;
+		}
+		.sb
+		{
+		top: 100px;
+		left: 30px;
+		width: 141px;
+		height: 31px;
+		text-align: left;
+		font: normal normal normal 28px/32px Ubuntu;
+		letter-spacing: 0px;
+		color: #FFFFFF;
+		opacity: 1;
+		position:absolute;
+		}
+		.grid
+		{
+		top: 20px;
+		left: 30px;
+		width: 1380px;
+		height: 4050px;
+		background: #273D49 0% 0% no-repeat padding-box;
+		border-radius: 10px;
+		opacity: 1;
+		position:relative;
+		}
+		.nextbtn
+		{
+		top: 515px;
+		left: 1355px;
+		width: 55px;
+		height: 55px;
+		background: #39495e 0% 0% no-repeat padding-box;
+		box-shadow:1px 6px #00000069;
+		opacity: 1;
+		border-radius: 100px;
+		position:absolute;
+		}
+		.nextarr
+		{
+		top: 515px;
+		left: 1356px;
+		width: 10px;
+		height: 21px;
+		font: normal normal normal 28px/32px Ubuntu;
+		color: #FFFFFF;
+		opacity: 1;
+		}
+		.prevarr{
+		top: 525px;
+		left: 43px;
+		width: 10px;
+		height: 21px;
+		font: normal normal normal 28px/32px Ubuntu;
+		color: #FFFFFF;
+		opacity: 1;}
+		.prevbtn
+		{
+		top: 515px;
+		left: 41px;
+		width: 55px;
+		height: 55px;
+		background: #39495e 0% 0% no-repeat padding-box;
+		border-radius:100px;
+		box-shadow:1px 6px #00000069;
+		opacity: 1;
+		position:absolute;
+		}
+		.nextbtn:hover,.prevbtn:hover,.addbtn:hover,.delbtn:hover,.editbtn:hover,.add1:hover,.cancel:hover,.reset:hover,.save:hover
+		{
+		background:#14AFF1;cursor:pointer;
+		}
+		.nextbtn:focus,.prevbtn:focus,.addbtn:focus,.delbtn:focus,.editbtn:focus,.add1:focus,.cancel:focus,.reset:focus,.save:focus
+		{background:#14AFF1;}
+		input[type="checkbox"]
+		{
+		top: 268px;
+		left: 90px;
+		width: 16px;
+		height: 16px;
+		border: 2px solid #97A1A9;
+		border-radius: 3px;
+		opacity: 1;
+		}
+		.custname
+		{
+		width:900px;
+		float:right;
+		margin-left:50px;
+		color:white;
+		background-color:transparent;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		width:200px;
+		height:23px;
+		align-items:center;
+		display:-webkit-inline-flex;
+		font-family:monospace;
+		cursor:default;
+		overflow:hidden;
+		padding:10px;
+		}
+		.custno
+		{
+		width:900px;
+		float:right;
+		margin-left:50px;
+		color:white;
+		background-color:transparent;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		width:200px;
+		height:23px;
+		align-items:center;
+		display:-webkit-inline-flex;
+		font-family:monospace;
+		cursor:default;
+		overflow:hidden;
+		padding:10px;
+		}
+		.invoiceid
+		{
+		width:900px;
+		float:right;
+		margin-left:50px;
+		color:white;
+		background-color:transparent;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		width:200px;
+		height:23px;
+		align-items:center;
+		display:-webkit-inline-flex;
+		font-family:monospace;
+		cursor:default;
+		overflow:hidden;
+		padding:10px;
+		}
+		.amount
+		{
+		width:900px;
+		float:right;
+		margin-left:50px;
+		color:white;
+		background-color:transparent;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		width:200px;
+		height:23px;
+		align-items:center;
+		display:-webkit-inline-flex;
+		font-family:monospace;
+		cursor:default;
+		overflow:hidden;
+		padding:10px;
+		}
+		.duedate
+		{
+		width:900px;
+		float:right;
+		margin-left:50px;
+		color:white;
+		background-color:transparent;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		width:200px;
+		height:23px;
+		align-items:center;
+		display:-webkit-inline-flex;
+		font-family:monospace;
+		cursor:default;
+		overflow:hidden;
+		padding:10px;
+		}
+		table {
+		top:230px;
+		border-collapse: collapse;
+		left:9vw;
+		width:81vw;
+		color: #FFFFFF;
+		position:absolute;
+		}
+		th
+		{
+		left:71px;
+		width: 129px;
+		margin-top: auto;
+		text-align:left;
+		font: normal normal normal 13px/10px Ubuntu;
+		font-size:1vw;
+		letter-spacing: 0px;
+		color: #97A1A9;
+		opacity: 1;
+		}
+		td{
+		left: 132px;
+		width: 1800px;
+		height: 50px;
+		text-align: left;
+		font: normal normal normal 15px/19px Ubuntu;
+		font-size:1vw;
+		letter-spacing: 0px;
+		opacity: 1;
+		}
+		tr:nth-child(even) {background-color: #283a46;}
+		.modaladd {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		/* Modal Content */
+		.modal-contentadd {
+		background: #2A3E4C 0% 0% no-repeat padding-box;
+		box-shadow: 0px 8px 24px #00000029;
+		border-radius: 6px;
+		margin: auto;
+		margin-top:75px;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 60%;
+		height:69%;
+		}
+		/* The Close Button */
+		.close1 {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		}
+		.close1:hover,
+		.close1:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+		}
+		.modaledit {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		/* Modal Content */
+		.modal-contentedit {
+		background: #2A3E4C 0% 0% no-repeat padding-box;
+		box-shadow: 0px 8px 24px #00000029;
+		border-radius: 6px;
+		margin: auto;
+		margin-top:75px;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 28%;
+		height:67%;
+		}
+		/* The Close Button */
+		.close2 {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		}
+		.close2:hover,
+		.close2:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+		}
+		.modaldel {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		/* Modal Content */
+		.modal-contentdel {
+		background: #2A3E4C 0% 0% no-repeat padding-box;
+		box-shadow: 0px 8px 24px #00000029;
+		border-radius: 6px;
+		margin: auto;
+		margin-top:75px;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 38%;
+		height:47%;
+		}
+		/* The Close Button */
+		.close3 {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		}
+		.close3:hover,
+		.close3:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+		}
+		textarea
+		{margin-top:1px;
+		margin-left: 2000px;
+		width: 260px;
+		height: 169px;
+		margin-left:88px;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		}
+		.container
+		{
+		margin-top:50px;
+		}
+		* {
+		box-sizing: border-box;
+		}
+		.flex-container {
+		display: flex;
+		flex-direction: row;
+		text-align:left;
+		}
+		.flex-item-left {
+		padding: 20px;
+		flex: 20%;
+		}
+		.flex-item-right {
+		padding: 20px;
+		flex: 20%;
+		}
+		/* Responsive layout - makes a one column-layout instead of two-column layout */
+		@media (max-width: 800px) {
+		.flex-container {
+		flex-direction: column;
+		}
+		}
+		button
+		{
+		background:transparent;
+		border:0px;
+		}
+        input[type="text"]
+        {float:right;
+        margin-left:50px;
+        color:white;
+        background-color:transparent;
+        background: #283A46 0% 0% no-repeat padding-box;
+        border: 1px solid #356680;
+        border-radius: 8px;
+        opacity: 1;
+        width:200px;
+        height:23px;
+        align-items:center;
+        display:-webkit-inline-flex;
+        font-family:monospace;
+        cursor:default;
+        overflow:hidden;
+        padding:10px;
+        }  
+        
+        textarea
+        {margin-top:1px;
+        margin-left: 2000px;
+        width: 260px;
+        height: 169px;
+        margin-left:88px;
+        background: #283A46 0% 0% no-repeat padding-box;
+        border: 1px solid #356680;
+        border-radius: 8px;
+        opacity: 1;
+        }
+
+		label{
+		text-align: left;
+		font: normal normal normal 10px/16px Ubuntu;
+		color:#C0C6CA;
+		letter-spacing: 0.19px;float:left;
+		opacity: 1;
+		} 
+		.modhead
+		{
+		width: 146px;
+		height: 31px;
+		text-align: left;
+		font: normal normal normal 20px/30px Ubuntu;
+		letter-spacing: 0px;
+		color: #FFFFFF;
+		text-transform: capitalize;
+		opacity: 1;
+		}
+		.required {
+		content:'*';
+		color: red;
+		display:inline;
+		}
+		.cancel1
+		{
+		float:left;
+		width: 60px;
+		height: 25px;
+		border: transparent;
+		color:#14AFF1;font: normal normal normal 13px/15px Ubuntu;
+		opacity: 1;
+		background-color: transparent; cursor:pointer;
+		margin:6px;
+		}
+		.cancel2
+		{
+		float:left;
+		width: 60px;
+		height: 25px;
+		border: transparent;
+		color:#14AFF1;font: normal normal normal 13px/15px Ubuntu;
+		opacity: 1;
+		background-color: transparent;cursor:pointer;
+		margin:6px;
+		}
+		.clear
+		{
+		float:right;
+		width: 60px;
+		height: 25px;
+		border: 1px solid #14AFF1;
+		border-radius: 6px;
+		color:#FFFFFF;
+		opacity: 1;
+		background-color: transparent;
+		margin:6px;
+		}
+		.add1
+		{
+		float:right;
+		width: 60px;
+		height: 25px;
+		border: 1px solid #14AFF1;
+		color:#FFFFFF;
+		border-radius: 6px;
+		opacity: 1;
+		background-color: transparent;
+		margin:6px;
+		}
+		.reset
+		{float:right;
+		width: 60px;
+		height: 25px;
+		border: 1px solid #14AFF1;
+		border-radius: 6px;
+		color:#FFFFFF;
+		opacity: 1;
+		background-color: transparent;
+		margin:6px;}
+		.save
+		{
+		float:right;
+		width: 60px;
+		height: 25px;
+		border: 1px solid #14AFF1;
+		border-radius: 6px;
+		color:#FFFFFF;
+		opacity: 1;
+		background-color: transparent;
+		margin:6px;
+		}
+		.del1
+		{
+		float:right;
+		width: 60px;
+		height: 25px;
+		border: 1px solid #14AFF1;
+		border-radius: 6px;
+		color:#FFFFFF;
+		opacity: 1;
+		background-color: transparent;
+		margin:6px;
+		}
+		.cancel3
+		{
+		float:right;
+		width: 60px;
+		height: 25px;
+		border: 1px solid #14AFF1;
+		border-radius: 6px;font: normal normal normal 13px/15px Ubuntu;
+		color:#FFFFFF;
+		opacity: 1;
+		background-color: transparent;cursor:pointer;
+		margin:6px;
+		}
+		input[type="date"]
+		{
+		margin-left:40px;
+		color:white;
+		background-color:transparent;
+		background: #283A46 0% 0% no-repeat padding-box;
+		border: 1px solid #356680;
+		border-radius: 8px;
+		opacity: 1;
+		width:210px;
+		height:23px;
+		align-items:center;
+		display:-webkit-inline-flex;
+		font-family:monospace;
+		cursor:default;
+		overflow:hidden;
+		padding:0px;
+		}
+		input[type="date"] + label {
+		display: inline;
+		margin:10px;
+		}
+		#snackbar {
+		visibility: hidden;
+		min-width: 250px;
+		margin-left: -125px;
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		border-radius: 2px;
+		padding: 16px;
+		position: fixed;
+		z-index: 1;
+		left: 50%;
+		bottom: 30px;
+		font-size: 17px;
+		}
+		#snackbar.show {
+		visibility: visible;
+		-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+		@-webkit-keyframes fadein {
+		from {bottom: 0; opacity: 0;} 
+		to {bottom: 30px; opacity: 1;}
+		}
+		@keyframes fadein {
+		from {bottom: 0; opacity: 0;}
+		to {bottom: 30px; opacity: 1;}
+		}
+		@-webkit-keyframes fadeout {
+		from {bottom: 30px; opacity: 1;} 
+		to {bottom: 0; opacity: 0;}
+		}
+		@keyframes fadeout {
+		from {bottom: 30px; opacity: 1;}
+		to {bottom: 0; opacity: 0;}
+		}
+		@media only screen and (max-width: 800px) {
+		.leftlogo{
+		left:85px;
+		top:65px;
+		}
+		table{margin-top: 18px;}
+		.logo{left:110px;top:6px;}
+		.grid{display:none;}
+		.modal-content{height:620px;}
+		.notes{width:100px;}
+		.clear{margin-left:100px;}
+		body{height:900px;height:auto;}
+		}
+	</style>
+  
+
+
+
+
+  <body>
+    <div class="leftlogo" ><a href="index.html"><img src="images/Group 20399.svg"></a></div>
+    <div class="logo"></div>
+    <div style="margin-top: 130px;margin-left:20px;">
+       <select class  ="form-control" name="state" id="maxRows">
+          <option value="11">11</option>
+          <option value="3">3</option>
+          <option value="10">10</option>
+       </select>
+    </div>
+    <div class="grid"></div>
+    <ul class="pagination">
+       <li data-page="prev"><button class="prevbtn">
+          <span class="nextarr"><</span>
+          </button> </span></span>
+       </li>
+       <!--	Here the JS Function Will Add the Rows -->
+       <li data-page="next" id="prev">
+          <span> <button class="nextbtn"> 
+          <span class="prevarr">></span>
+          </button> </span></span>
+       </li>
+    </ul>
+    </div>     
+    <!-- 		End of Container -->
+    <table id='table'>
+       <!-- HEADING FORMATION -->
+       <tr>
+          <th><input type="checkbox"/>Customer Name</th>
+          <th>Customer#</th>
+          <th>Invoice#</th>
+          <th>Invoice Amount</th>
+          <th>Due Date</th>
+          <th>Predicted Payment Date</th>
+          <th>Notes</th>
+       </tr>
+    </table>
+    </div>
+    <div class="sb"></div>
+    <div id="myModaladd" class="modaladd">
+       <!-- Modal content -->
+       <div class="modal-contentadd">
+          <div>
+             <span class="close1">&times;</span>
+             <label   class="modhead" >Add Invoice</label>	
+          </div>
+          <div class="flex-container   container">
+             <div class="flex-item-left">
+                <div>
+                   <label for="f1" >Customer  Name<span class="required">*</span>
+                   <input  type="text" id="f1"  style=" margin-left:40px;" /></label>
+                </div>
+                <br></br>
+                <div>
+                   <label for="f2" >Customer   Number<span class="required">*</span>
+                   <input  type="text"  id="f2"  style=" margin-left:40px;"  /></label>
+                </div>
+                <br></br>
+                <div>
+                   <label for="f3" >Invoice No.<span class="required">*</span>
+                   <input  type="text"  id="f3"  style=" margin-left:74px;" /></label>
+                </div>
+                <br></br>
+                <div>
+                   <label for="f4">Invoice Amount<span class="required">*</span>
+                   <input  type="text"  id="f4"  style=" margin-left:55px;" /></label>
+                </div>
+                <br></br>
+             </div>
+             <div class="flex-item-right">
+                <div>
+                   <label for="f5">Due Date<span class="required">*</span>
+                   <input  type="date"  id="f5" class="duedate" /></label>
+                </div>
+                <br></br>
+                <div>
+                    <label for="f6">Notes
+                    <textarea id="f6"></textarea></label> 
+                     </div><br></br>
+        </div>
+        </div>		     
+    <span class="cancel1">Cancel</span>
+    <button class="add1" id="add1id" onclick="myFunctionAdd()" >Add</button>
+    <button class="clear">Clear</button>
+       </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+    <div id="myModaledit" class="modaledit">
+       <!-- Modal content -->
+       <div class="modal-contentedit">
+          <div>
+             <span class="close2">&times;</span>
+             <label for="f1" class="modhead">Edit Invoice</label><br></br>
+          </div>
+          <div class="container">
+             <label for="f6" >Invoice Amount<span class="required">*</span></label>
+             <input id="f6" type="text"/>
+          </div>
+          <br></br>
+          <label for="f8"  >Notes</label>
+          <textarea id="f8"></textarea>
+          <br></br>
+          <span class="cancel2">Cancel</span>
+          <button class="save"id="saveid" onclick="myFunctionEdit()">Save</button>
+          <button class="reset" id="resetid" onclick="myFunctionEdit()">Reset</button>
+       </div>
+    </div>
+    <div id="myModaldel" class="modaldel">
+       <!-- Modal content -->
+       <div class="modal-contentdel">
+          <div>
+             <span class="close3">&times;</span>
+             <label for="f1" class="modhead">Delete record(s)?</label><br></br>
+          </div>
+          <div class="container">
+             <label for="f6" >You will lose all your records.Are you sure to delete them?</label>
+          </div>
+          <br></br>
+          <button class="del1">Delete</button>
+          <span class="cancel3">Cancel</span>
+       </div>
+    </div>
+    <div>
+       <button id="myBtnadd" class="addbtn">
+       <span class="addbtnicon"><img src="images/Path 18189.svg"></span>
+       <span class="addeditdelfont">Add</span>
+       </button>
+    </div>
+    <div>
+       <button id="myBtnedit" class="editbtn">
+       <span class="editbtnicon"><img src="images/Path 18191.svg"></span>
+       <span class="addeditdelfont">Edit</span>
+       </button>
+    </div>
+    <div>
+       <button id="myBtndel" class="delbtn">
+       <span class="delbtnicon">-</span>
+       <span class="addeditdelfont">Delete</span>
+       </button>
+    </div>
+    <div>
+       <input type="text" class="search" value="search">
+    </div>
+    <div id="snackbar">Some text some message..</div>
+
+
+
+<script>
+
+
+
+
+
+
+
+
+$(document).ready(function () {
+  
+  // FETCHING DATA FROM JSON FILE
+  $.getJSON("/WebContent/index1.json", 
+          function (data) {
+      var student = '';
+
+      // ITERATING THROUGH OBJECTS
+      $.each(data, function (key, value) {
+
+          //CONSTRUCTION OF ROWS HAVING
+          // DATA FROM JSON OBJECT
+          student += '<tr>';
+
+          student += '<td ><input type="checkbox" />' + 
+              value.custname + '</td>';
+
+              student += '<td>' + 
+              value.custno + '</td>';
+
+
+
+          student += '<td>' + 
+              value.invoiceid + '</td>';
+
+          student += '<td>' + 
+              value.amount + '</td>';
+
+              student += '<td>' + 
+              value.duedate+ '</td>';
+
+              student += '<td>' + 
+              value.paydate+ '</td>';
+
+          student += '</tr>';
+      });
+        
+      //INSERTING ROWS INTO TABLE 
+      $('table').append (student);
+  });
+
+
+
+});
+ 
+
+getPagination('#table');
+
+
+
+function getPagination(table) {
+var lastPage = 1;
+
+$('#maxRows')
+.on('change', function(evt) {
+//$('.paginationprev').html('');						// reset pagination
+
+lastPage = 1;
+$('.pagination')
+.find('li')
+.slice(1, -1)
+.remove();
+var trnum = 0; // reset tr counter
+var maxRows =10 ; // get Max Rows from select option
+
+if (maxRows == 11) {
+$('.pagination').hide();
+} else {
+$('.pagination').show();
+}
+
+var totalRows = $(table + ' table tr').length; // numbers of rows
+$(table + ' tr:gt(0)').each(function() {
+// each TR in  table and not the header
+trnum++; // Start Counter
+if (trnum > maxRows) {
+// if tr number gt maxRows
+
+$(this).hide(); // fade it out
+}
+if (trnum <= maxRows) {
+$(this).show();
+} // else fade in Important in case if it ..
+}); //  was fade out to fade it in
+if (totalRows > maxRows) {
+// if tr total rows gt max rows option
+var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..
+//	numbers of pages
+for (var i = 1; i <= pagenum; ) {
+// for each page append pagination li
+$('.pagination #prev')
+.before(
+'<li data-page="' +
+i + '"><span>' + i++ + '<span class="sr-only"></span></span>	</li>'
+)
+.show();
+} // end for i
+} // end if row count > max rows
+$('.pagination [data-page="1"]').addClass('active'); // add active class to the first li
+$('.pagination li').on('click', function(evt) {
+// on click each page
+evt.stopImmediatePropagation();
+evt.preventDefault();
+var pageNum = $(this).attr('data-page'); // get it's number
+
+var maxRows = parseInt($('#maxRows').val()); // get Max Rows from select option
+
+if (pageNum == 'prev') {
+if (lastPage == 1) {
+return;
+}
+pageNum = --lastPage;
+}
+if (pageNum == 'next') {
+if (lastPage == $('.pagination li').length - 2) {
+return;
+}
+pageNum = ++lastPage;
+}
+
+lastPage = pageNum;
+var trIndex = 0; // reset tr counter
+$('.pagination li').removeClass('active'); // remove active class from all li
+$('.pagination [data-page="' + lastPage + '"]').addClass('active'); // add active class to the clicked
+// $(this).addClass('active');					// add active class to the clicked
+limitPagging();
+$(table + ' tr:gt(0)').each(function() {
+// each tr in table not the header
+trIndex++; // tr index counter
+// if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+if (
+trIndex > maxRows * pageNum ||
+trIndex <= maxRows * pageNum - maxRows
+) {
+$(this).hide();
+} else {
+$(this).show();
+} //else fade in
+}); // end of for each tr in table
+}); // end of on click pagination list
+limitPagging();
+})
+.val(5)
+.change();
+
+// end of on select change
+
+// END OF PAGINATION
+}
+
+function limitPagging(){
+// alert($('.pagination li').length)
+
+if($('.pagination li').length > 7 ){
+if( $('.pagination li.active').attr('data-page') <= 3 ){
+$('.pagination li:gt(5)').hide();
+$('.pagination li:lt(5)').show();
+$('.pagination [data-page="next"]').show();
+}if ($('.pagination li.active').attr('data-page') > 3){
+$('.pagination li:gt(0)').hide();
+$('.pagination [data-page="next"]').show();
+for( let i = ( parseInt($('.pagination li.active').attr('data-page'))  -2 )  ; i <= ( parseInt($('.pagination li.active').attr('data-page'))  + 2 ) ; i++ ){
+$('.pagination [data-page="'+i+'"]').show();
+
+}
+
+}
+}
+}
+
+
+var modaladd = document.getElementById("myModaladd");
+var modaledit = document.getElementById("myModaledit");
+var modaldel = document.getElementById("myModaldel");
+// Get the button that opens the modal
+var addbtn = document.getElementById("myBtnadd");
+var editbtn = document.getElementById("myBtnedit");
+var delbtn = document.getElementById("myBtndel");
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+
+var cspan1 = document.getElementsByClassName("cancel1")[0];
+var cspan2 = document.getElementsByClassName("cancel2")[0];
+var cspan3 = document.getElementsByClassName("cancel3")[0];
+
+// When the user clicks the button, open the modal 
+addbtn.onclick = function() {
+modaladd.style.display = "block";
+}
+
+
+editbtn.onclick = function() {
+modaledit.style.display = "block";
+}
+
+
+delbtn.onclick = function() {
+modaldel.style.display = "block";
+}
+
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+modaladd.style.display = "none";
+}
+
+cspan1.onclick = function() {
+modaladd.style.display = "none";
+}
+
+
+
+span2.onclick = function() {
+modaledit.style.display = "none";
+}
+
+cspan2.onclick = function() {
+modaledit.style.display = "none";
+}
+
+
+span3.onclick = function() {
+modaldel.style.display = "none";
+}
+cspan3.onclick = function() {
+modaldel.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modaladd) {
+modaladd.style.display = "none";
+}
+}
+
+
+
+window.onclick = function(event) {
+if (event.target == modaledit) {
+modaledit.style.display = "none";
+}
+}
+
+
+window.onclick = function(event) {
+if (event.target == modaldel) {
+modaldel.style.display = "none";
+}
+}
+
+
+
+
+
+
+function myFunctionAdd() {
+if(document.getElementById("f1").value == "" || document.getElementById(id).value == null || document.getElementById("f1").value == undefined)
+{
+var x = document.getElementById("snackbar");
+x.className = "show";
+setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+}	
+
+</script>
+
+
+        </body>
+  
+
+  
+</html>
