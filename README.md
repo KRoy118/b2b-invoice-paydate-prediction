@@ -4,5 +4,5 @@ The generated resultset(.csv) was stored as a JSON file from sql database,then c
 Further ui was made using html,css and javascript.
 
 ![Image of Yaktocat](https://github.com/KRoy118/b2b-invoice-paydate-prediction/blob/main/2021-07-27%20(10).png)
-https://github.com/KRoy118/b2b-invoice-paydate-prediction/blob/main/2021_07_27_21_21_08.mp4
+https://github.com/KRoy118/b2b-invoice-paydate-prediction/blob/main/2021_07_27_21_21_08_Trim.mp4
 
